@@ -2,12 +2,13 @@
 <html lang="en-us">
   <head>
     <meta charset="UTF-8">
-    <title>Website by BeyondTheFold</title>
+    <title>Beyond the Fold</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+	<link rel="icon" type="image/png" href="images/icon.png"/>
   </head>
   <body>
     <section class="page-header">
@@ -19,6 +20,110 @@
     </section>
 
     <section class="main-content">
+		<h2>Overview</h2>
+
+		<p>
+			Beyond the Fold is a project to visualize a user's path while browsing
+			the web. It consists of two software components and one hardware:
+		</p>
+		<ul>
+			<li>A voluntarily installed web extension to monitor a user's relative position</li>
+			<li>A visualizing tool that can be used to import the graph from local-storage.</li>
+			<li>A device that has lights allowing the end user to highlight a slice of time.</li>
+		</ul>
+
+		<p>
+			The initial end product was intended to be a physical manifestation of
+			the paths through time. It was conceived by <a href="https://github.com/andrewcdoh">Andrew Doherty</a>
+			for his graphic design thesis.
+		</p>
+
+		<img src="images/image-3.jpg"/>
+
+		<p>
+			Each pane of acrylic has a polar coordinate graph containing the path of one's website
+			visits. The full circumference of the graph represents 6 hours of browsing in this
+			example but can be adjusted in the source. 
+		</p>
+
+		<ul>
+			<li>Each circular node is a new page visit.</li>
+			<li>Each diamond node is a page visit reached via a search.</li>
+			<li>Each connecting line or edge between nodes represents visiting a link from another page.</li>
+			<li>Each tab is divided by a separating line.</li>
+		</ul>
+
+		<img src="images/image-20.jpg"/>
+
+		<h2>Monitor</h2>
+
+		<p>The monitor tracks:</p>
+		<ul>
+			<li>Duration of a page visit.</li>
+			<li>The parent/child relationship between websites.</li>
+			<li>The uniqueness of a page visit.</li>
+			<li>Whether the page was reached via. a web search.</li>
+		</ul>
+
+		<h3>Usage</h3>
+
+		<p>
+			To install and use the browsing monitor you need Safari and developer tools installed.
+			One cannot distribute self-signed web extensions and getting Apple to sign this
+			particular extension may be difficult due to perceived invasiveness. 
+		</p>
+
+		<p>
+		After ensuring developer tools are installed open Safari and execute the 
+		following steps:
+		</p>
+
+		<ul>
+			<li>Clone the project.</li>
+			<li>Go to Develop -> Show Extension Builder.</li>
+			<li>Click the plus sign in the bottom left corner to add an extension.</li>
+			<li>Select Add Extension.</li>
+			<li>Select the directory in the cloned project called `Browsing-Monitor.safariextension`.</li>
+		</ul>
+
+		<p>
+			The browsing monitor is now active and will automatically track you. This data
+			is being pushed to the SQLite database in Safari's localstorage.
+		</p>
+
+		<h2>Visualizer</h2>
+
+		<p>
+			The visualization tool was constructed in a way such that visible page visit's 
+			(indicated by a node) can be filtered out by the duration of that visit.
+		</p>
+
+		<h3>Usage</h3>		
+
+		<p>
+			Install the newest version of processing and open 
+			`Visualisation/visualization/visualization.pde`. 
+			The graph should be generated based on the data in your Safari localstorage.
+		</p>
+
+		<h2>Device</h3>
+
+		<p>
+			The final device consisted of an Arduino, LED strips, a sliding potentiometer,
+			and a three state switch.
+		</p>
+
+		<ul>
+			<li>Isolate a single slice.</li>
+			<li>Build or highlight all slices up to a selected slice.</li>
+		</ul>
+
+		<h2>Contributors</h2>
+
+		<ul>
+			<li><a href="https://github.com/andrewcdoh">Drew Doherty</a></li>
+			<li><a href="https://github.com/drewgun">Drew Gunderson</a></li>
+		</ul>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/BeyondTheFold/Website">Website</a> is maintained by <a href="https://github.com/BeyondTheFold">BeyondTheFold</a>.</span>
